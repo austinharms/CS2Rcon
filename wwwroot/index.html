@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Server Manager</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <h1>CS2 Server Manager</h1>
+    <main>
+        <section>
+            <h2>Bots</h2>
+            <form class="command-form inline">
+                <input class="command-value" type="text"
+                    value="bot_all_weapons;bot_chatter normal;bot_difficulty 3;bot_quota 10; bot_quota_mode fill;"
+                    hidden />
+                <input type="submit" value="Enable" />
+            </form>
+            <form class="command-form inline">
+                <input class="command-value" type="text" value="bot_quota 0;bot_kick" hidden />
+                <input type="submit" value="Disable" />
+            </form>
+            <form class="command-form">
+                <h3>Difficulty: <span class="variable-display" data-var="bot_difficulty"></span></h3>
+                <input class="command-value" type="text" value="bot_difficulty" hidden />
+                <select class="command-value" required>
+                    <option value="1">Easy</option>
+                    <option value="2">Normal</option>
+                    <option value="3">Hard</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Count: <span class="variable-display" data-var="bot_quota"></span></h3>
+                <input class="command-value" type="text" value="bot_quota" hidden />
+                <input class="command-value" type="number" max="10" min="0" required />
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Chatter: <span class="variable-display" data-var="bot_chatter"></span></h3>
+                <input class="command-value" type="text" value="bot_chatter" hidden />
+                <select class="command-value" required>
+                    <option value="off">Off</option>
+                    <option value="radio">Radio</option>
+                    <option value="minimal">Minimal</option>
+                    <option value="normal">Normal</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Zombie: <span class="variable-display" data-var="bot_zombie"></span></h3>
+                <input class="command-value" type="text" value="bot_zombie" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>AI Disabled: <span class="variable-display" data-var="ai_disabled"></span></h3>
+                <input class="command-value" type="text" value="ai_disabled" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+        </section>
+
+        <section>
+            <h2>General</h2>
+            <form class="command-form">
+                <h3>Cheats: <span class="variable-display" data-var="sv_cheats"></span></h3>
+                <input class="command-value" type="text" value="sv_cheats" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>TK AutoKick: <span class="variable-display" data-var="mp_autokick"></span></h3>
+                <input class="command-value" type="text" value="mp_autokick" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Suicide Penalty: <span class="variable-display" data-var="mp_suicide_penalty"></span></h3>
+                <input class="command-value" type="text" value="mp_suicide_penalty" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Set Map:</h3>
+                <input class="command-value" type="text" value="map" hidden />
+                <select class="command-value" required>
+                    <option value="ar_baggage">Baggage</option>
+                    <option value="ar_shoots">Shoots</option>
+                    <option value="cs_italy">Italy</option>
+                    <option value="cs_office">Office</option>
+                    <option value="de_ancient">Ancient</option>
+                    <option value="de_anubis">Anubis</option>
+                    <option value="de_dust2">Dust II</option>
+                    <option value="de_inferno">Inferno</option>
+                    <option value="de_mirage">Mirage</option>
+                    <option value="de_nuke">Nuke</option>
+                    <option value="de_overpass">Overpass</option>
+                    <option value="de_vertigo">Vertigo</option>
+                    <optgroup label="Unreleased">
+                        <option value="de_canals">Canals</option>
+                        <option value="de_cbble">Cobblestone</option>
+                        <option value="de_lake">Lake</option>
+                        <option value="de_shortdust">Shortdust</option>
+                        <option value="de_train">Train</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Game Mode: <span class="variable-display" data-var="game_type"></span>-<span
+                        class="variable-display" data-var="game_mode"></span>-<span class="variable-display"
+                        data-var="sv_skirmish_id"></span>-<span class="variable-display"
+                        data-var="sv_game_mode_flags"></span></h3>
+                <input class="command-value" type="text" value="sv_game_mode_flags 0;sv_skirmish_id 0;" hidden />
+                <select class="command-value" required>
+                    <optgroup label="Classic">
+                        <option value="game_type 0;game_mode 0;">Casual</option>
+                        <option value="game_type 0;game_mode 1;">Competitive</option>
+                        <option value="game_type 0;game_mode 2;">Wingman</option>
+                        <option value="game_type 0;game_mode 3;">Weapons Expert</option>
+                        <option value="game_type 0;game_mode 4;">Training Day</option>
+                        <option value="game_type 0;game_mode 0;sv_skirmish_id 3;">Flying Scoutsman</option>
+                        <option value="game_type 0;game_mode 0;sv_skirmish_id 12;">Retakes</option>
+                        <option value="game_type 0;game_mode 1;sv_game_mode_flags 32;">Short Competitive</option>
+                    </optgroup>
+                    <optgroup label="Gun Game">
+                        <option value="game_type 1;game_mode 0;sv_skirmish_id 10;">Arms Race</option>
+                        <option value="game_type 1;game_mode 1;sv_skirmish_id 11;">Demolition</option>
+                        <option value="game_type 1;game_mode 2;">Deathmatch</option>
+                    </optgroup>
+                    <optgroup label="Training">
+                        <option value="game_type 2;game_mode 0;">Training</option>
+                    </optgroup>
+                    <optgroup label="Custom">
+                        <option value="game_type 3;game_mode 0;">Custom</option>
+                    </optgroup>
+                    <optgroup label="Cooperative">
+                        <option value="game_type 4;game_mode 0;">Guardian</option>
+                        <option value="game_type 4;game_mode 1;">Co-op Strike</option>
+                    </optgroup>
+                    <optgroup label="Skirmish">
+                        <option value="game_type 5;game_mode 0;">War Games</option>
+                    </optgroup>
+                    <optgroup label="Free For All">
+                        <option value="game_type 6;game_mode 0;">Danger Zone</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Custom Command:</h3>
+                <input class="command-value" type="text" value="" required placeholder="Command..." />
+                <input type="submit" value="Send" />
+            </form>
+        </section>
+        <section>
+            <h2>Shop</h2>
+            <h3>Quick Configs: </h3>
+            <form class="command-form inline">
+                <input class="command-value" type="text"
+                    value="mp_buy_anywhere 0;mp_buytime 20;mp_maxmoney 16000;mp_startmoney 800;mp_afterroundmoney 0;ammo_grenade_limit_breachcharge 3; ammo_grenade_limit_bumpmine 3; ammo_grenade_limit_default 1; ammo_grenade_limit_flashbang 2; ammo_grenade_limit_snowballs 3; ammo_grenade_limit_total 4; ammo_grenade_limit_tripwirefire 1;"
+                    hidden />
+                <input type="submit" value="Set Defaults" />
+            </form>
+            <form class="command-form inline">
+                <input class="command-value" type="text" value="mp_buy_anywhere 1;mp_buytime 60000;" hidden />
+                <input type="submit" value="Global Shop" />
+            </form>
+            <form class="command-form inline">
+                <input class="command-value" type="text"
+                    value="mp_maxmoney 65535;mp_startmoney 65535;mp_afterroundmoney 65535;" hidden />
+                <input type="submit" value="Inf Money" />
+            </form>
+            <form class="command-form inline">
+                <input class="command-value" type="text"
+                    value="ammo_grenade_limit_breachcharge 100; ammo_grenade_limit_bumpmine 100; ammo_grenade_limit_default 100; ammo_grenade_limit_flashbang 100; ammo_grenade_limit_snowballs 100; ammo_grenade_limit_total 100; ammo_grenade_limit_tripwirefire 100;"
+                    hidden />
+                <input type="submit" value="More Grenades" />
+            </form>
+            <form class="command-form">
+                <h3>Buy Anywhere: <span class="variable-display" data-var="mp_buy_anywhere"></span></h3>
+                <input class="command-value" type="text" value="mp_buy_anywhere" hidden />
+                <select class="command-value" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
+                </select>
+                <input type="submit" value="Save" />
+            </form>
+            <form class="command-form">
+                <h3>Shop Timer(s): <span class="variable-display" data-var="mp_buytime"></span></h3>
+                <input class="command-value" type="text" value="mp_buytime" hidden />
+                <input class="command-value" type="number" max="60000" min="0" required />
+                <input type="submit" value="Save" />
+            </form>
+        </section>
+    </main>
+    <section>
+        <h2>Command Output</h2>
+        <textarea id="cmd-output" disabled></textarea>
+    </section>
+    <div id="content-blocker">
+        <div class="center-contents">
+            <h1>Reconnecting...</h1>
+        </div>
+    </div>
+</body>
+
+</html>
